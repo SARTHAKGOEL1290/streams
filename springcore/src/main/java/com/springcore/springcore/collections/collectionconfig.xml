@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <bean class="com.springcore.springcore.collections.Employee" name="Employee1">
+   
+   <property name="employeeName"  value="abcd"/>
+   
+   <property name="empCode">
+    <list>
+      <value>101</value>
+      <value>102</value>
+      <value>103</value>
+      <value>104</value>
+    </list>
+   </property>
+   
+   <property name="salaryInfo">
+     <map>
+       <entry key ="101"  value="50000"/>
+       <entry key ="102"  value="70000"/>
+       <entry key ="103"  value="120000"/>
+       <entry key ="104"  value="150000"/>
+     </map>
+   </property>
+ 
+   </bean>
+  <!--the below bean is used for passing object reference value to IOC  --> 
+   
+   <bean class="com.springcore.springcore.collections.Manager" name="Manager1" p:managerName ="john smith"/>
+   
+    <bean class="com.springcore.springcore.collections.Employee" name="Employee2">
+      <property name="employeeName"  value="abcd"/>
+        <property name="ob">
+           <ref bean = "Manager1"/>
+         </property>
+    </bean>
+ 
+ </beans>
